@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何高效地在github上找开源项目学习？</title>
+      <link href="/2020/07/03/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E5%9C%A8github%E4%B8%8A%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%EF%BC%9F/"/>
+      <url>/2020/07/03/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E5%9C%A8github%E4%B8%8A%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%EF%BC%9F/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://space.bilibili.com/384068749?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">程序羊大佬指导</a></p><p><a href="https://www.cnblogs.com/Terry-Wu/p/12577790.html" target="_blank" rel="noopener">[HappyShare]文档</a></p><h1 id="如何高效地在github上找开源项目学习？"><a href="#如何高效地在github上找开源项目学习？" class="headerlink" title="如何高效地在github上找开源项目学习？"></a><a href="">如何高效地在github上找开源项目学习？</a></h1><h2 id="练习：更高效的github查询开源项目-精确搜索-。"><a href="#练习：更高效的github查询开源项目-精确搜索-。" class="headerlink" title="练习：更高效的github查询开源项目(精确搜索)。"></a>练习：更高效的github查询开源项目(精确搜索)。</h2><p>in：readme spring boot  stars:&gt;1000  //按照  in：readme  查询 spring boot  详情中有没有</p><p>in：readme spring security stars:&gt;3000   // stars:&gt;1000 过滤喜欢数</p><p>in：name spring     #在名字中包含python的项目</p><p>in：name python stars:&gt;5000    //过滤喜欢数</p><p>in：name python stars:&gt;5000  forks:&gt;5000</p><p>in：readme python stars:&gt;1500   </p><p>in:description 微服务 language:go pushed:&gt;2019-10-01       #在描述中限制</p><p>in:description 爬虫 language:python stars:&gt;1000 pushed:&gt;2019-10-01</p><h2 id="1-常用词含义"><a href="#1-常用词含义" class="headerlink" title="1. 常用词含义"></a>1. 常用词含义</h2><ul><li><strong>watch</strong>：会持续收到该项目的动态</li><li><strong>fork</strong>：复制某个项目到自己的Github仓库中</li><li><strong>star</strong>：可以理解为点赞</li><li><strong>clone</strong>：将项目下载至本地</li><li><strong>follow</strong>：关注你感兴趣的作者，会收到他们的动态</li></ul><h2 id="2-in关键词"><a href="#2-in关键词" class="headerlink" title="2. in关键词"></a>2. in关键词</h2><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p><strong>xxx关键词 in:name 或 description 或 readme</strong></p><ul><li>xxx in:name 项目名包含xxx的</li><li>xxx in:description 项目描述包含xxx的</li><li>xxx in:readme项目的readme文件中包含xxx的</li></ul><h3 id="组合使用"><a href="#组合使用" class="headerlink" title="组合使用"></a>组合使用</h3><ul><li>搜索项目名或readme中包含秒杀的项目：seckill in:name,readme</li></ul><h2 id="3-start或fork数量的关键词查找"><a href="#3-start或fork数量的关键词查找" class="headerlink" title="3. start或fork数量的关键词查找"></a>3. start或fork数量的关键词查找</h2><h3 id="1）公式"><a href="#1）公式" class="headerlink" title="1）公式"></a>1）公式</h3><h4 id="1）xxx关键词-stars-通配符-gt-或者-gt"><a href="#1）xxx关键词-stars-通配符-gt-或者-gt" class="headerlink" title="(1）xxx关键词 stars 通配符 (:&gt; 或者 :&gt;=)"></a><strong>(1）xxx关键词 stars 通配符 (:&gt; 或者 :&gt;=)</strong></h4><h4 id="2）区间范围数字：数字1-数字2"><a href="#2）区间范围数字：数字1-数字2" class="headerlink" title="(2）区间范围数字：数字1..数字2"></a><strong>(2）区间范围数字：数字1..数字2</strong></h4><h3 id="2）示例"><a href="#2）示例" class="headerlink" title="2）示例"></a><strong>2）示例</strong></h3><h4 id="1-查找stars数大于等于5000的springboot项目-springboot-stars-gt-5000"><a href="#1-查找stars数大于等于5000的springboot项目-springboot-stars-gt-5000" class="headerlink" title="(1) 查找stars数大于等于5000的springboot项目: springboot stars :&gt;=5000"></a><strong>(1) 查找stars数大于等于5000的springboot项目: springboot stars :&gt;=5000</strong></h4><h4 id="2-查找forks数大于500的springcloud项目-springcloud-forks-gt-500"><a href="#2-查找forks数大于500的springcloud项目-springcloud-forks-gt-500" class="headerlink" title="(2) 查找forks数大于500的springcloud项目: springcloud forks:&gt;500"></a><strong>(2) 查找forks数大于500的springcloud项目: springcloud forks:&gt;500</strong></h4><h3 id="3）组合使用"><a href="#3）组合使用" class="headerlink" title="3）组合使用"></a>3）组合使用</h3><h4 id="1-查找fork在100到200之间并且stars数在80到100之间的springboot项目：springboot-forks-100-200-starts-80-100"><a href="#1-查找fork在100到200之间并且stars数在80到100之间的springboot项目：springboot-forks-100-200-starts-80-100" class="headerlink" title="(1) 查找fork在100到200之间并且stars数在80到100之间的springboot项目：springboot forks:100..200 starts:80..100"></a>(1) 查找fork在100到200之间并且stars数在80到100之间的springboot项目：springboot forks:100..200 starts:80..100</h4><h2 id="4-awesome加强搜索"><a href="#4-awesome加强搜索" class="headerlink" title="4. awesome加强搜索"></a>4. awesome加强搜索</h2><h3 id="1）公式-1"><a href="#1）公式-1" class="headerlink" title="1）公式"></a>1）公式</h3><h4 id="1）awesome-关键字"><a href="#1）awesome-关键字" class="headerlink" title="(1）awesome 关键字"></a><strong>(1）awesome 关键字</strong></h4><p><strong>awesome系列，一般是用来收集学习、工具、书籍类相关的项目</strong></p><h3 id="2）示例-1"><a href="#2）示例-1" class="headerlink" title="2）示例"></a><strong>2）示例</strong></h3><p><strong>(1) 搜索优秀的redis相关的项目，包括框架、教程等：awesome redis</strong></p><h2 id="5-高亮显示某一行代码"><a href="#5-高亮显示某一行代码" class="headerlink" title="5. 高亮显示某一行代码"></a>5. 高亮显示某一行代码</h2><h4 id="1-指定某一行：地址-L-行号-url-L13"><a href="#1-指定某一行：地址-L-行号-url-L13" class="headerlink" title="(1) 指定某一行：地址 + #L + 行号: url + #L13"></a>(1) 指定某一行：地址 + #L + 行号: url + #L13</h4><h4 id="2-指定范围行：地址-L开始行号-L结整行号：url-L13-L23"><a href="#2-指定范围行：地址-L开始行号-L结整行号：url-L13-L23" class="headerlink" title="(2) 指定范围行：地址 + #L开始行号-L结整行号：url + #L13-L23"></a>(2) 指定范围行：地址 + #L开始行号-L结整行号：url + #L13-L23</h4><h2 id="6-项目内搜索"><a href="#6-项目内搜索" class="headerlink" title="6. 项目内搜索"></a>6. 项目内搜索</h2><h4 id="1-英文t"><a href="#1-英文t" class="headerlink" title="(1) 英文t"></a>(1) 英文t</h4><h4 id="2-https-help-github-com-en-articles-using-keyboard-shortcuts"><a href="#2-https-help-github-com-en-articles-using-keyboard-shortcuts" class="headerlink" title="(2) https://help.github.com/en/articles/using-keyboard-shortcuts"></a>(2) <a href="https://help.github.com/en/articles/using-keyboard-shortcuts" target="_blank" rel="noopener">https://help.github.com/en/articles/using-keyboard-shortcuts</a></h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> geihub </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> geihub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>上传图片管理</title>
       <link href="/2020/07/03/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86/"/>
       <url>/2020/07/03/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86/</url>
