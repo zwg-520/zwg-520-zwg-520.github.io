@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>整合mybatis plus</title>
+      <link href="/2020/07/12/%E6%95%B4%E5%90%88mybatis-plus/"/>
+      <url>/2020/07/12/%E6%95%B4%E5%90%88mybatis-plus/</url>
+      
+        <content type="html"><![CDATA[<h2 id="整合mybatis-plus"><a href="#整合mybatis-plus" class="headerlink" title="整合mybatis plus"></a>整合mybatis plus</h2><h4 id="整合mybatis-plus，让项目能完成基本的增删改查操作。步骤很简单：可以去官网看看：mp-baomidou-com-guide-insta-…"><a href="#整合mybatis-plus，让项目能完成基本的增删改查操作。步骤很简单：可以去官网看看：mp-baomidou-com-guide-insta-…" class="headerlink" title="整合mybatis plus，让项目能完成基本的增删改查操作。步骤很简单：可以去官网看看：mp.baomidou.com/guide/insta …"></a>整合mybatis plus，让项目能完成基本的增删改查操作。步骤很简单：可以去官网看看：<a href="https://mp.baomidou.com/guide/install.html" target="_blank" rel="noopener">mp.baomidou.com/guide/insta …</a></h4><h2 id="初步：介绍jar包"><a href="#初步：介绍jar包" class="headerlink" title="初步：介绍jar包"></a><strong>初步：介绍jar包</strong></h2><h3 id="pom中引入mybatis-plus的jar包，因为后面会涉及到代码生成，所以我们还需要引入页面模板引擎，这里我们用的是freemarker。"><a href="#pom中引入mybatis-plus的jar包，因为后面会涉及到代码生成，所以我们还需要引入页面模板引擎，这里我们用的是freemarker。" class="headerlink" title="pom中引入mybatis plus的jar包，因为后面会涉及到代码生成，所以我们还需要引入页面模板引擎，这里我们用的是freemarker。"></a>pom中引入mybatis plus的jar包，因为后面会涉及到代码生成，所以我们还需要引入页面模板引擎，这里我们用的是freemarker。</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--mp--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-freemarker<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mp代码生成器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="第二步：然后去写配置文件"><a href="#第二步：然后去写配置文件" class="headerlink" title="第二步：然后去写配置文件"></a><strong>第二步：然后去写配置文件</strong></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># DataSource Config</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql://localhost:3306/vueblog?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">    username: root</span><br><span class="line">    password: admin</span><br><span class="line">mybatis-plus:</span><br><span class="line">  mapper-locations: classpath*:/mapper/**Mapper.xml</span><br></pre></td></tr></table></figure><h2 id="第三步：代码生成-“CodeGenerator”"><a href="#第三步：代码生成-“CodeGenerator”" class="headerlink" title="第三步：代码生成 “CodeGenerator”"></a><strong>第三步：代码生成</strong> “CodeGenerator”</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> mybatis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mybatis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MYSQL5.5更新到8.0.20连接池需要修改的文件，error：Loading class `com.mysql.jdbc.Driver&#39;. This is deprecated警告处理，jdbc更新处</title>
       <link href="/2020/07/09/Loading-class-com-mysql-jdbc-Driver-This-is-deprecated%E8%AD%A6%E5%91%8A%E5%A4%84%E7%90%86%EF%BC%8Cjdbc%E6%9B%B4%E6%96%B0%E5%A4%84%E7%90%86/"/>
       <url>/2020/07/09/Loading-class-com-mysql-jdbc-Driver-This-is-deprecated%E8%AD%A6%E5%91%8A%E5%A4%84%E7%90%86%EF%BC%8Cjdbc%E6%9B%B4%E6%96%B0%E5%A4%84%E7%90%86/</url>
@@ -63,14 +88,14 @@
       
       <categories>
           
-          <category> Mysql </category>
+          <category> MySql </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Mysql </tag>
+            <tag> MySql </tag>
             
         </tags>
       
