@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用idea中测试oracle连接并调用可调用语句</title>
+      <link href="/2020/08/04/%E4%BD%BF%E7%94%A8idea%E4%B8%AD%E6%B5%8B%E8%AF%95oracle%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%B0%83%E7%94%A8%E5%8F%AF%E8%B0%83%E7%94%A8%E8%AF%AD%E5%8F%A5/"/>
+      <url>/2020/08/04/%E4%BD%BF%E7%94%A8idea%E4%B8%AD%E6%B5%8B%E8%AF%95oracle%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%B0%83%E7%94%A8%E5%8F%AF%E8%B0%83%E7%94%A8%E8%AF%AD%E5%8F%A5/</url>
+      
+        <content type="html"><![CDATA[<ul><li>1.）首先导入jar包。</li><li>点击  文件–&gt;项目结构–&gt;Libraries</li></ul><p><img src= "/img/loading.gif" data-src="https://github.com/zwg-520/zwg-520.github.io/tree/master/img/oracle_1.png" alt=""></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//1、加载驱动</span></span><br><span class="line">        Class.forName(<span class="string">"oracle.jdbc.driver.OracleDriver"</span>);</span><br><span class="line">        <span class="comment">//2、得到连接 localhost(连接地址)，1521(端口号)，ORCL(数据库)</span></span><br><span class="line">        <span class="comment">//scott(用户名)，123(口令)</span></span><br><span class="line">        Connection ct = DriverManager.getConnection(</span><br><span class="line">                <span class="string">"jdbc:oracle:thin:@localhost:1521:ORCL"</span>, </span><br><span class="line">                <span class="string">"scott"</span>, </span><br><span class="line">                <span class="string">"123"</span>);</span><br><span class="line">        <span class="comment">//輸出连接</span></span><br><span class="line">        System.out.println(ct);</span><br><span class="line">        <span class="comment">//3、创建CallableStatement(编写理oracle数据库中Procedures 文件下你要调用的语句)</span></span><br><span class="line">        CallableStatement cs = ct.prepareCall(<span class="string">"&#123;call p_get_empename(?,?)&#125;"</span>);</span><br><span class="line">        <span class="comment">//4、给？赋值</span></span><br><span class="line">        cs.setInt(<span class="number">1</span>, <span class="number">7788</span>);</span><br><span class="line">        cs.registerOutParameter(<span class="number">2</span>, Types.VARCHAR);</span><br><span class="line">        <span class="comment">//5、执行</span></span><br><span class="line">        cs.execute();</span><br><span class="line">        <span class="comment">//5、1获取</span></span><br><span class="line">        String show = cs.getString(<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">"获取姓名"</span> + show);</span><br><span class="line">        <span class="comment">//6、关闭</span></span><br><span class="line">        cs.close();</span><br><span class="line">        ct.close();</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> oracle </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Oracle中存储过程的作用和用法</title>
       <link href="/2020/08/04/oracle%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E7%94%A8%E6%B3%95/"/>
       <url>/2020/08/04/oracle%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E7%94%A8%E6%B3%95/</url>
